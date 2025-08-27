@@ -15,6 +15,11 @@ public class DemoApplication {
 
     @GetMapping("/health")
     public String healthCheck() {
-        return "OK: CI/CD Pipeline with Jenkins";
+        return "OK: CI/CD Pipeline with Jenkins - Ricardo Vargas Campos";
+    }
+    
+    @GetMapping("/")
+    public String nasaCheck() {
+        return "Este es el sistema de la nasa";
     }
 }
