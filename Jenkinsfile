@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/10ElvisDqs/spring-boot-ci-staging-.git'
+                git branch: 'main', url: 'https://github.com/RVC22/spring-staging.git'
             }
         }
         stage('Build') {
@@ -34,7 +34,7 @@ pipeline {
         stage('Copy Artifact') {
             steps {
                 sshagent(['jenkis-spring-docker-key']) {
-                    sh 'scp target/${ARTIFACT_NAME} $STAGING_SERVER:/home/spring_user_java/staging/'
+                    sh 'scp -o StrictHostKeyChecking=no target/${ARTIFACT_NAME} $STAGING_SERVER:/home/spring_user_java/staging/'
                 }
             }
         }
